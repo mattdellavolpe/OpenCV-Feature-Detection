@@ -1,7 +1,5 @@
-from flask import Flask, send_file, Response, request, make_response, current_app, jsonify
-from matplotlib import pyplot as plt
+from flask import Flask, Response, request, make_response, jsonify
 from camera import Camera
-import io
 import cv2
 import numpy
 import urllib
@@ -29,7 +27,7 @@ def gen(camera):
 
 def fetch_remote_image(url):
     r = urllib.urlopen(url)
-    image = numpy.asarray(bytearray(r.read()), dtype="uint8")
+    image = numpy.asarray(bytearray(r.read()), dtype='uint8')
     return cv2.imdecode(image, cv2.IMREAD_COLOR)
 
 
