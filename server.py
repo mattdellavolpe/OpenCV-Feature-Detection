@@ -70,6 +70,7 @@ def feature():
         }
         response = make_response(jsonify(error))
         response.headers['Content-Type'] = 'application/json'
+        response.status_code = 400
         return response
 
     query_image = fetch_remote_image(query_image_url)
